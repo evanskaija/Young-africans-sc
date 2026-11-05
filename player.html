@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#041f16" />
+  <meta name="description" content="Young Africans SC first-team player profile." />
+  <title>Player Profile — Young Africans SC</title>
+  <link rel="icon" type="image/png" sizes="512x512" href="young-africansc.png" />
+  <link rel="apple-touch-icon" href="young-africansc.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="player-profile-page">
+  <div class="prototype-bar">
+    <div class="utility-bar-inner">
+      <span class="utility-status"><i></i> NEXT MATCH · SAT 07 NOV · 19:00 EAT</span>
+      <nav class="utility-links" aria-label="Quick links">
+        <a href="index.html#matches">BUY TICKETS <span>↗</span></a>
+        <a href="membership.html">JOIN WANANCHI</a>
+        <a href="membership.html#member-login">LOGIN</a>
+        <a href="index.html#tv">YANGA TV</a>
+      </nav>
+    </div>
+  </div>
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html" aria-label="Young Africans SC home">
+      <span class="brand-mark"><img src="young-africansc.png" alt="Young Africans SC crest" /></span>
+      <span class="brand-copy"><strong>YOUNG AFRICANS</strong><small>SPORTS CLUB</small><em>THE PRIDE OF WANANCHI</em></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="https://www.alahlyegypt.com/en/news" target="_blank" rel="noopener noreferrer">News</a>
+      <a href="index.html#club">Club Sports</a>
+      <a href="index.html#tv">Media &amp; Videos</a>
+      <a href="membership.html">Membership</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions"><a class="button button-small" href="membership.html#join-now">JOIN YANGA <span>↗</span></a></div>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </header>
+
+  <nav class="team-section-nav" aria-label="Men's first-team navigation">
+    <div class="team-section-nav-inner">
+      <span class="team-section-nav-label">MEN'S FIRST TEAM</span>
+      <a href="team.html#fixtures-preview">Fixtures</a>
+      <a href="team.html#results-preview">Results</a>
+      <a href="team.html#achievements">Achievements</a>
+      <a href="squad.html#squad">Players</a>
+    </div>
+  </nav>
+
+  <main class="player-profile-main">
+    <section class="player-profile-hero" aria-labelledby="profile-name">
+      <div class="player-profile-image"><img data-profile-image src="Assets/DJIGUI DIARRA.png" alt="Young Africans first-team player" /></div>
+      <div class="player-profile-copy">
+        <a class="player-back-link" data-back-to-squad href="squad.html#squad">&larr; BACK TO THE SQUAD</a>
+        <span data-profile-position>PLAYER</span>
+        <div class="player-profile-number" data-profile-number>—</div>
+        <h1 id="profile-name" data-profile-name>Player Profile</h1>
+        <p data-profile-bio>Young Africans SC first-team player.</p>
+        <div class="player-profile-meta"><div><small>NATIONALITY</small><strong data-profile-nationality>—</strong></div><div><small>POSITION</small><strong data-profile-role>—</strong></div><div><small>SHIRT NUMBER</small><strong data-profile-number>—</strong></div></div>
+      </div>
+    </section>
+    <section class="player-profile-details" aria-labelledby="profile-details-title">
+      <div class="team-container">
+        <div class="team-section-heading"><div><span class="team-overline">PLAYER INFORMATION</span><h2 id="profile-details-title">THE <em>DETAILS.</em></h2></div><p>Every player profile is built around the identity, discipline and ambition behind the Yanga badge.</p></div>
+        <div class="player-info-grid"><div><small>FULL NAME</small><strong data-profile-full-name>—</strong></div><div><small>POSITION</small><strong data-profile-role>—</strong></div><div><small>NATIONALITY</small><strong data-profile-nationality>—</strong></div><div><small>SEASON DATA</small><strong>Official data to follow</strong></div></div>
+        <div class="player-stats-note"><span>SEASON STATISTICS</span><p>Appearances, goals, assists and minutes are shown here when verified competition data is available.</p></div>
+        <a class="team-text-link" data-back-to-squad href="squad.html#squad">RETURN TO THE SQUAD <span>&rarr;</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact"><div class="container footer-bottom"><span>© 2026 Young Africans Sports Club</span><span>THE HOME OF WANANCHI</span><a href="#top">BACK TO TOP ↑</a></div></footer>
+
+  <script src="script.js"></script>
+  <script src="team-data.js"></script>
+  <script src="player.js"></script>
+</body>
+</html>
