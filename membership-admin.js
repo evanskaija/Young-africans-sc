@@ -1,0 +1,17 @@
+(() => {
+  const panel = document.querySelector('[data-admin-panel]'); const lock = document.querySelector('[data-admin-lock]'); const message = document.querySelector('[data-admin-message]');
+  const rows = document.querySelector('[data-admin-rows]'); const search = document.querySelector('[data-admin-search]'); const status = document.querySelector('[data-admin-status]');
+  if (!panel || !window.MembershipClient) return;
+  let applications = [];
+  const setStatus = (text, tone = '') => { status.textContent = text; status.dataset.tone = tone; };
+  const escapeHtml = (text) => String(text || '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' }[character]));
+  const renderCounts = (counts) => { document.querySelector('[data-count-total]').textContent = counts.total; document.querySelector('[data-count-pending]').textContent = counts.pending; document.querySelector('[data-count-under-review]').textContent = counts.underReview; document.querySelector('[data-count-reviewed]').textContent = counts.reviewed; };
+  const renderRows = () => {
+    const term = search.value.trim().toLowerCase(); const filtered = applications.filter((application) => `${application.reference} ${application.fullName}`.toLowerCase().includes(term));
+    rows.innerHTML = filtered.length ? filtered.map((application) => `<tr><td><strong>${escapeHtml(application.reference)}</strong></td><td>${escapeHtml(application.fullName)}<small>${escapeHtml(application.email)}</small></td><td>${escapeHtml(application.categoryName)}</td><td>${escapeHtml(application.bankName)}</td><td>${new Date(application.submittedAt).toLocaleDateString()}</td><td><select data-admin-status-id="${escapeHtml(application.id)}" aria-label="Update status for ${escapeHtml(application.reference)}"><option ${application.status === 'Pending Review' ? 'selected' : ''}>Pending Review</option><option ${application.status === 'Under Review' ? 'selected' : ''}>Under Review</option><option ${application.status === 'More Information Required' ? 'selected' : ''}>More Information Required</option><option ${application.status === 'Reviewed' ? 'selected' : ''}>Reviewed</option></select></td></tr>`).join('') : '<tr><td colspan="6">No applications match this search.</td></tr>';
+    rows.querySelectorAll('[data-admin-status-id]').forEach((control) => control.addEventListener('change', async () => { control.disabled = true; try { await window.MembershipClient.adminUpdate(control.dataset.adminStatusId, control.value); setStatus('Application status updated.', 'success'); await load(); } catch (error) { setStatus(error.message || 'Status update failed.', 'error'); control.disabled = false; } }));
+  };
+  const load = async () => { const data = await window.MembershipClient.adminList(search.value.trim()); applications = data.applications || []; renderCounts(data.counts || { total: applications.length, pending: 0, underReview: 0, reviewed: 0 }); renderRows(); };
+  search.addEventListener('input', renderRows);
+  window.MembershipClient.adminList().then((data) => { lock.hidden = true; panel.hidden = false; applications = data.applications || []; renderCounts(data.counts || {}); renderRows(); }).catch((error) => { message.textContent = error.status === 401 || error.status === 403 ? 'This page is protected. Sign in with an authorized administrator account to review applications.' : (error.message || 'The admin service is not configured yet.'); });
+})();

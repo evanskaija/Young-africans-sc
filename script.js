@@ -83,8 +83,8 @@ const heroLede = document.querySelector('.hero-lede');
 const heroStoryKicker = document.querySelector('#hero-story-kicker');
 let heroNewsSlides = heroNewsCards.map((card, index) => ({
   id: index,
-  image: index === 0 ? 'Assets/fiston-mayele.png' : card.querySelector('img')?.src || '',
-  alt: index === 0 ? 'Fiston Mayele in the Young Africans kit' : card.querySelector('img')?.alt || '',
+  image: card.querySelector('img')?.src || '',
+  alt: card.querySelector('img')?.alt || '',
   meta: card.querySelector('.hero-news-meta')?.innerHTML || '',
   title: card.querySelector('h3')?.innerHTML || '',
   description: card.querySelector('p')?.textContent || 'Stories, moments and voices from the heart of Yanga.',
@@ -110,12 +110,17 @@ function syncHeroStory(story) {
 
 function renderHeroStory(card, story) {
   const image = card.querySelector('img');
+  const link = card.querySelector('.hero-news-media');
   const meta = card.querySelector('.hero-news-meta');
   const title = card.querySelector('h3');
   const description = card.querySelector('p');
   if (image) {
     image.src = story.image;
     image.alt = story.alt;
+  }
+  if (link) {
+    const storyIds = ['next-generation', 'next-chapter', 'energy-every-step'];
+    link.href = `news.html?story=${storyIds[story.id] || 'standard-worn'}`;
   }
   if (meta) meta.innerHTML = story.meta;
   if (title) title.innerHTML = story.title;
@@ -154,6 +159,7 @@ function startHeroNews() {
 
 heroNewsCards.forEach((card, cardIndex) => {
   card.addEventListener('click', (event) => {
+    if (event.target.closest('a')) return;
     event.preventDefault();
     setHeroNews(cardIndex);
     startHeroNews();
@@ -185,6 +191,8 @@ if (heroNewsSlides.length) {
 
 const jerseySection = document.querySelector('.jersey-showcase-section');
 if (jerseySection) {
+  // Keep the collection visible immediately; the observer only controls autoplay.
+  jerseySection.classList.add('is-visible');
   const jerseyStage = jerseySection.querySelector('.jersey-stage');
   const jerseySlidesHost = jerseySection.querySelector('.jersey-slides');
   const jerseyInfo = jerseySection.querySelector('.jersey-product-info');
@@ -194,17 +202,19 @@ if (jerseySection) {
   const jerseyPrice = jerseySection.querySelector('.jersey-product-price');
   const jerseyCount = jerseySection.querySelector('.jersey-count');
   const jerseyCatalog = [
+    { file: 'kit 2027.png', label: 'KIT 2027', name: 'GOLD / WHITE', alt: 'Gold and white Young Africans 2027 kit' },
+    { file: 'Purple_Yanga_Soccer_Jersey_Product_Shot-removebg-preview.png', label: 'PURPLE', name: 'PURPLE / GOLD', alt: 'Purple and gold Young Africans jersey' },
+    { file: 'kit 2026.png', label: 'KIT 2026', name: 'BLUE / WHITE', alt: 'Blue and white Young Africans 2026 kit' },
+    { file: 'Yanga_Blue_and_Gold_Jersey_Render-removebg-preview.png', label: 'BLUE & GOLD', name: 'BLUE / GOLD', alt: 'Blue and gold Young Africans jersey' },
+    { file: 'Yellow Young Africans  Jersey.png', label: 'GOLD / BLACK', name: 'GOLD / BLACK', alt: 'Gold and black Young Africans jersey' },
     { file: 'Young Africans Green Football Jersey.png', label: 'NEW HOME', name: 'Young Africans Green Football Jersey', alt: 'Young Africans green football jersey' },
     { file: 'Green SportPesa Soccer Jersey.png', label: 'HOME', name: 'GREEN / GOLD', alt: 'Green and gold Young Africans jersey' },
-    { file: 'Yellow Young Africans  Jersey.png', label: 'AWAY', name: 'YELLOW / BLACK', alt: 'Yellow and black Young Africans jersey' },
     { file: 'Black Young Africans Jersey.png', label: 'THIRD', name: 'BLACK / GOLD', alt: 'Black and gold Young Africans jersey' },
     { file: 'Black_and_Gold_SportPesa_Football_Jersey-removebg-preview.png', label: 'BLACK & GOLD', name: 'BLACK / GOLD', alt: 'Black and gold SportPesa Young Africans jersey' },
     { file: 'Bright_Yellow_SportPesa_Football_Jersey-removebg-preview.png', label: 'BRIGHT YELLOW', name: 'BRIGHT YELLOW', alt: 'Bright yellow SportPesa Young Africans jersey' },
     { file: 'Green_Cityscape_Football_Jersey-removebg-preview.png', label: 'GREEN CITY', name: 'GREEN / CITYSCAPE', alt: 'Green cityscape Young Africans jersey' },
     { file: 'Navy Young Africans Football Jersey Mockup.png', label: 'NAVY', name: 'NAVY / GOLD', alt: 'Navy Young Africans football jersey' },
-    { file: 'Purple_Yanga_Soccer_Jersey_Product_Shot-removebg-preview.png', label: 'PURPLE', name: 'PURPLE / GOLD', alt: 'Purple Yanga football jersey' },
     { file: 'Teal SportPesa Young Africans Jersey.png', label: 'TEAL', name: 'TEAL / GOLD', alt: 'Teal SportPesa Young Africans jersey' },
-    { file: 'Yanga_Blue_and_Gold_Jersey_Render-removebg-preview.png', label: 'BLUE & GOLD', name: 'BLUE / GOLD', alt: 'Blue and gold Young Africans jersey' },
     { file: 'Yellow GSM Young Africans Soccer Jersey.png', label: 'YELLOW GSM', name: 'YELLOW / BLACK', alt: 'Yellow GSM Young Africans jersey' },
   ];
   const jerseyData = jerseyCatalog.map((jersey, index) => ({
@@ -214,6 +224,7 @@ if (jerseySection) {
     description: 'Official Merchandise',
     price: 'TSH 45,000',
   }));
+  jerseySlidesHost.innerHTML = '';
   jerseyCatalog.forEach((jersey, index) => {
     const slide = document.createElement('article');
     slide.className = 'jersey-slide';
@@ -843,6 +854,7 @@ document.querySelectorAll('.club-category-card img').forEach((image, index) => {
 const shortStoryAssets = [
   {
     file: 'Clement mzize.png',
+    video: 'Video-64366.mp4',
     alt: 'Clement Mzize in a Young Africans green jersey',
     label: 'FIRST TEAM',
     title: 'Clement Mzize: Ready for more.',
@@ -850,6 +862,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Young africans women1.jpg',
+    video: 'Video-42397.mp4',
     type: 'photo',
     alt: 'Young Africans women team player celebrating',
     label: "WOMEN'S TEAM",
@@ -858,6 +871,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Ibrahim bacca.png',
+    video: 'Video-19426.mp4',
     alt: 'Ibrahim Bacca in a Young Africans green jersey',
     label: 'FIRST TEAM',
     title: 'Ibrahim Bacca: Built for it.',
@@ -865,6 +879,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Academy.png',
+    video: 'Video-32118.mp4',
     type: 'photo',
     alt: 'Young Africans Academy player in training',
     label: 'ACADEMY',
@@ -873,6 +888,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Yao kouasi.png',
+    video: 'Video-69668.mp4',
     alt: 'Yao Kouasi in a Young Africans yellow jersey',
     label: 'THE YANGA WAY',
     title: 'Yao Kouasi: In motion.',
@@ -880,6 +896,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Young soccer school.jpg',
+    video: 'Video-85725.mp4',
     type: 'photo',
     alt: 'Young Africans Soccer School child training with a football',
     label: 'SOCCER SCHOOL',
@@ -902,8 +919,71 @@ document.querySelectorAll('.shorts-rail .short-card').forEach((card, index) => {
   if (label) label.textContent = asset.label;
   if (title) title.textContent = asset.title;
   if (description) description.textContent = asset.description;
+  card.href = `Assets/${asset.video}`;
+  card.setAttribute('aria-label', `Play ${asset.title}`);
   card.classList.toggle('short-card-player', asset.type !== 'photo');
   card.classList.toggle('short-card-photo', asset.type === 'photo');
+});
+
+const shortVideoModal = document.createElement('div');
+shortVideoModal.className = 'short-video-modal';
+shortVideoModal.hidden = true;
+shortVideoModal.innerHTML = `
+  <button class="short-video-modal-backdrop" type="button" aria-label="Close video"></button>
+  <div class="short-video-dialog" role="dialog" aria-modal="true" aria-labelledby="short-video-title">
+    <div class="short-video-dialog-head">
+      <div>
+        <span class="short-video-kicker"></span>
+        <h2 id="short-video-title"></h2>
+      </div>
+      <button class="short-video-close" type="button" aria-label="Close video">&#215;</button>
+    </div>
+    <video class="short-video-player" controls playsinline preload="metadata"></video>
+  </div>
+`;
+document.body.appendChild(shortVideoModal);
+
+const shortVideoPlayer = shortVideoModal.querySelector('.short-video-player');
+const shortVideoTitle = shortVideoModal.querySelector('#short-video-title');
+const shortVideoKicker = shortVideoModal.querySelector('.short-video-kicker');
+const shortVideoClose = shortVideoModal.querySelector('.short-video-close');
+let shortVideoTrigger = null;
+let shortVideoHideTimer;
+
+function closeShortVideo() {
+  window.clearTimeout(shortVideoHideTimer);
+  shortVideoModal.classList.remove('is-open');
+  document.body.classList.remove('short-video-open');
+  shortVideoPlayer.pause();
+  shortVideoPlayer.removeAttribute('src');
+  shortVideoPlayer.load();
+  shortVideoHideTimer = window.setTimeout(() => { shortVideoModal.hidden = true; }, 180);
+  shortVideoTrigger?.focus();
+}
+
+document.querySelectorAll('.shorts-rail .short-card').forEach((card, index) => {
+  const asset = shortStoryAssets[index];
+  if (!asset?.video) return;
+  card.addEventListener('click', (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    shortVideoTrigger = card;
+    shortVideoKicker.textContent = asset.label;
+    shortVideoTitle.textContent = asset.title;
+    shortVideoPlayer.src = `Assets/${asset.video}`;
+    window.clearTimeout(shortVideoHideTimer);
+    shortVideoModal.hidden = false;
+    document.body.classList.add('short-video-open');
+    requestAnimationFrame(() => shortVideoModal.classList.add('is-open'));
+    shortVideoClose.focus();
+    shortVideoPlayer.play().catch(() => {});
+  });
+});
+
+shortVideoClose.addEventListener('click', closeShortVideo);
+shortVideoModal.querySelector('.short-video-modal-backdrop').addEventListener('click', closeShortVideo);
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && !shortVideoModal.hidden) closeShortVideo();
 });
 
 const standalonePartners = document.querySelector('.partners-section');

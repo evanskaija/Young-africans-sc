@@ -1,0 +1,17 @@
+{
+  "name": "young-africans-sc-membership",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Secure membership registration API for the Young Africans SC static website.",
+  "scripts": {
+    "dev": "vercel dev",
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "@vercel/postgres": "^0.10.0",
+    "bcryptjs": "^2.4.3"
+  },
+  "devDependencies": {
+    "vercel": "^39.2.2"
+  }
+}

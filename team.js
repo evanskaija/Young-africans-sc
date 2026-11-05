@@ -55,6 +55,14 @@ const trophyGallery = document.querySelector('[data-trophy-gallery]');
 if (trophyGallery) {
   const trophyCards = Array.from(trophyGallery.querySelectorAll('.men-trophy-card'));
   const initialTrophy = trophyGallery.querySelector('.men-trophy-card-feature') || trophyCards[0];
+  const trophyMeta = document.querySelector('[data-trophy-meta]');
+  const trophyLabel = trophyMeta?.querySelector('[data-trophy-label]');
+  const trophyTitle = trophyMeta?.querySelector('[data-trophy-title]');
+  const trophySubtitle = trophyMeta?.querySelector('[data-trophy-subtitle]');
+  const trophyCount = trophyMeta?.querySelector('[data-trophy-count]');
+  const trophyDots = Array.from(document.querySelectorAll('[data-trophy-dot]'));
+  const previousTrophy = document.querySelector('[data-trophy-prev]');
+  const nextTrophy = document.querySelector('[data-trophy-next]');
   let activeFrame = 0;
 
   const centerTrophy = (card, behavior = 'auto') => {
@@ -73,7 +81,28 @@ if (trophyGallery) {
       const closestDistance = Math.abs(closest.offsetLeft + closest.offsetWidth / 2 - galleryCenter);
       return Math.abs(cardCenter - galleryCenter) < closestDistance ? card : closest;
     }, null);
-    trophyCards.forEach((card) => card.classList.toggle('is-active', card === activeCard));
+    const activeIndex = trophyCards.indexOf(activeCard);
+    trophyCards.forEach((card, index) => {
+      card.classList.toggle('is-active', card === activeCard);
+      card.classList.toggle('is-neighbor', Math.abs(index - activeIndex) === 1);
+      card.classList.toggle('is-far', Math.abs(index - activeIndex) > 1);
+    });
+    if (trophyLabel) trophyLabel.textContent = activeCard.dataset.trophyLabel || '';
+    if (trophyTitle) trophyTitle.textContent = activeCard.dataset.trophyTitle || '';
+    if (trophySubtitle) trophySubtitle.textContent = activeCard.dataset.trophySubtitle || '';
+    if (trophyCount) trophyCount.textContent = activeCard.dataset.trophyCount || '1';
+    trophyDots.forEach((dot, index) => {
+      const active = index === activeIndex;
+      dot.classList.toggle('is-active', active);
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+    });
+  };
+
+  const moveTrophy = (direction) => {
+    const activeIndex = trophyCards.findIndex((card) => card.classList.contains('is-active'));
+    const nextIndex = (activeIndex + direction + trophyCards.length) % trophyCards.length;
+    centerTrophy(trophyCards[nextIndex], 'smooth');
   };
 
   trophyGallery.addEventListener('scroll', () => {
@@ -83,6 +112,12 @@ if (trophyGallery) {
       activeFrame = 0;
     });
   }, { passive: true });
+
+  previousTrophy?.addEventListener('click', () => moveTrophy(-1));
+  nextTrophy?.addEventListener('click', () => moveTrophy(1));
+  trophyDots.forEach((dot) => {
+    dot.addEventListener('click', () => centerTrophy(trophyCards[Number(dot.dataset.trophyDot)], 'smooth'));
+  });
 
   window.requestAnimationFrame(() => {
     centerTrophy(initialTrophy);

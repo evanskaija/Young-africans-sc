@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071d15" />
+  <meta name="description" content="Stay connected with Young Africans SC through the latest club announcements, match reports, team updates, exclusive stories and news from across the club." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Young Africans SC" />
+  <meta property="og:title" content="Latest from Yanga | Young Africans SC" />
+  <meta property="og:description" content="The latest club announcements, match reports, team updates, exclusive stories and news from across Young Africans SC." />
+  <meta property="og:image" content="young-africansc.png" />
+  <link rel="canonical" href="news.html" />
+  <link rel="icon" type="image/png" sizes="512x512" href="young-africansc.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Latest from Yanga | Young Africans SC</title>
+</head>
+<body class="news-page">
+  <div class="prototype-bar">
+    <div class="utility-bar-inner">
+      <span class="utility-status"><i></i> YANGA NEWS - STORIES FROM WANANCHI</span>
+      <nav class="utility-links" aria-label="Quick links">
+        <a href="index.html#fixtures">MATCH CENTRE <span>-&gt;</span></a>
+        <a href="membership.html">JOIN WANANCHI</a>
+        <a href="membership.html#member-login">LOGIN</a>
+        <a href="index.html#tv">YANGA TV</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="site-header" id="top">
+    <a class="brand" href="index.html#top" aria-label="Young Africans SC home">
+      <span class="brand-mark"><img src="young-africansc.png" alt="Young Africans SC crest" /></span>
+      <span class="brand-copy"><strong>YOUNG AFRICANS</strong><small>SPORTS CLUB</small><em>THE PRIDE OF WANANCHI</em></span>
+    </a>
+    <nav class="main-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="news.html" aria-current="page">News</a>
+      <a href="index.html#club">Club Sports</a>
+      <a href="index.html#tv">Media &amp; Videos</a>
+      <a href="membership.html">Membership</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn search-toggle" aria-label="Open search"><span></span></button>
+      <div class="language-switch" aria-label="Language switcher"><button class="active">SW</button><button>EN</button></div>
+      <a class="sign-in" href="membership.html#member-login">Sign in</a>
+      <a class="sign-up" href="membership.html#join-now">Sign up</a>
+      <a class="button button-small" href="membership.html#join-now">JOIN YANGA <span>-&gt;</span></a>
+    </div>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"><i></i><i></i><i></i></button>
+  </header>
+
+  <main>
+    <section class="news-index-shell" data-news-index aria-labelledby="news-index-title">
+      <div class="container">
+        <div class="news-index-heading">
+          <div>
+            <span class="overline">YOUNG AFRICANS SC / LATEST UPDATES</span>
+            <h1 id="news-index-title">LATEST FROM <em>YANGA.</em></h1>
+          </div>
+          <p>Stay connected with Young Africans SC through the latest club announcements, match reports, team updates, exclusive stories and news from across the club.</p>
+        </div>
+
+        <div class="news-filter-bar" role="tablist" aria-label="Filter news stories">
+          <button class="is-active" type="button" role="tab" aria-selected="true" data-news-filter="all">ALL NEWS</button>
+          <button type="button" role="tab" aria-selected="false" data-news-filter="first-team">FIRST TEAM</button>
+          <button type="button" role="tab" aria-selected="false" data-news-filter="women">WOMEN</button>
+          <button type="button" role="tab" aria-selected="false" data-news-filter="academy">ACADEMY</button>
+          <button type="button" role="tab" aria-selected="false" data-news-filter="match-reports">MATCH REPORTS</button>
+          <button type="button" role="tab" aria-selected="false" data-news-filter="club">CLUB UPDATES</button>
+        </div>
+
+        <div class="news-card-grid" data-news-grid aria-live="polite"></div>
+        <div class="news-empty-state" data-news-empty hidden>
+          <strong>No stories in this category yet.</strong>
+          <span>Check back soon for the latest from Yanga.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="news-detail-shell" data-news-detail hidden aria-labelledby="news-detail-title">
+      <div class="news-detail-layout">
+        <aside class="news-detail-media-column">
+          <a class="news-detail-back" href="news.html">&lt;- ALL NEWS</a>
+          <figure class="news-detail-sticky-media">
+            <img data-detail-image src="Assets/fiston-mayele.png" alt="" />
+            <figcaption data-detail-caption></figcaption>
+          </figure>
+        </aside>
+
+        <div class="news-detail-intro">
+          <div class="news-detail-kicker"><span data-detail-category>FIRST TEAM</span><time data-detail-date></time></div>
+          <h1 id="news-detail-title" data-detail-title></h1>
+          <p class="news-detail-dek" data-detail-dek></p>
+          <div class="news-detail-byline"><span>YOUNG AFRICANS SC NEWSROOM</span><span data-detail-read-time></span></div>
+        </div>
+
+        <article class="news-detail-content">
+          <div class="news-detail-body" data-detail-body></div>
+          <div class="news-detail-share"><span>SHARE STORY</span><a href="#" data-share="x" aria-label="Share on X">X</a><a href="#" data-share="facebook" aria-label="Share on Facebook">f</a><a href="#" data-share="copy" aria-label="Copy story link">-&gt;</a></div>
+          <a class="news-detail-next" href="news.html"><span>BACK TO THE NEWSROOM</span><strong>READ MORE STORIES <b>-&gt;</b></strong></a>
+        </article>
+      </div>
+
+      <section class="news-related" aria-labelledby="related-title">
+        <div class="container">
+          <div class="news-related-heading">
+            <div><span class="overline">KEEP READING</span><h2 id="related-title">MORE FROM <em>YANGA.</em></h2></div>
+            <a href="news.html">VIEW ALL NEWS <span>-&gt;</span></a>
+          </div>
+          <div class="news-related-grid" data-related-grid></div>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="contact">
+    <div class="container footer-top">
+      <div class="footer-brand"><img src="young-africansc.png" alt="Young Africans SC crest" /><div><strong>YOUNG AFRICANS</strong><span>SPORTS CLUB</span></div></div>
+      <div class="footer-tagline">THE HOME OF<br /><em>WANANCHI</em></div>
+      <div class="footer-social"><a href="index.html#top">IG</a><a href="index.html#top">X</a><a href="index.html#top">YT</a><a href="index.html#top">o</a></div>
+    </div>
+    <div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>THE HOME OF WANANCHI</span><a href="#top">BACK TO TOP ^</a></div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="news.js"></script>
+</body>
+</html>
