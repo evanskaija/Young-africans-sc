@@ -3,10 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "description": "Secure membership registration API for the Young Africans SC static website.",
+  "engines": {
+    "node": "22.x"
+  },
   "scripts": {
-    "build": "echo \"Static build ready\"",
-    "dev": "vercel dev",
-    "start": "vercel dev"
+    "build": "node scripts/build-static.js",
+    "dev": "npx --yes vercel@39.2.2 dev --yes",
+    "start": "npx --yes vercel@39.2.2 dev --yes"
   },
   "dependencies": {
     "@vercel/postgres": "^0.10.0",

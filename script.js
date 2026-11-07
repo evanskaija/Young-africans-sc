@@ -854,7 +854,7 @@ document.querySelectorAll('.club-category-card img').forEach((image, index) => {
 const shortStoryAssets = [
   {
     file: 'Hamsa.png',
-    video: 'Video-95306.mp4',
+    link: 'https://www.instagram.com/reel/DfW1LHNIurO/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     alt: 'Young Africans players celebrating a five-goal victory',
     label: 'FIRST TEAM',
     title: 'Five-star football.',
@@ -862,7 +862,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Clement mzize.png',
-    video: 'Video-64366.mp4',
+    link: 'https://www.instagram.com/reel/DRP_hUrjF-J/?utm_source=ig_web_copy_link&dlrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     alt: 'Clement Mzize in a Young Africans green jersey',
     label: 'FIRST TEAM',
     title: 'Clement Mzize: Ready for more.',
@@ -870,7 +870,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Young africans women1.jpg',
-    video: 'Video-42397.mp4',
+    link: 'https://www.instagram.com/reel/DfUy_u7olP5/?utm_source=ig_web_copy_link&srtk=MzRlODBiNWFlZA==',
     type: 'photo',
     alt: 'Young Africans women team player celebrating',
     label: "WOMEN'S TEAM",
@@ -879,7 +879,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Ibrahim bacca.png',
-    video: 'Video-19426.mp4',
+    link: 'https://www.instagram.com/reel/DfO6YRAoeve/?utm_source=ig_web_copy_link&exln=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     alt: 'Ibrahim Bacca in a Young Africans green jersey',
     label: 'FIRST TEAM',
     title: 'Ibrahim Bacca: Built for it.',
@@ -887,7 +887,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Academy.png',
-    video: 'Video-32118.mp4',
+    link: 'https://www.instagram.com/reel/DfSgKzQIJHF/?utm_source=ig_web_copy_link&psln=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     type: 'photo',
     alt: 'Young Africans Academy player in training',
     label: 'ACADEMY',
@@ -896,7 +896,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Yao kouasi.png',
-    video: 'Video-69668.mp4',
+    link: 'https://www.instagram.com/reel/DEFqoRvquOn/?utm_source=ig_web_copy_link&obrf=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     alt: 'Yao Kouasi in a Young Africans yellow jersey',
     label: 'THE YANGA WAY',
     title: 'Yao Kouasi: In motion.',
@@ -904,7 +904,7 @@ const shortStoryAssets = [
   },
   {
     file: 'Young soccer school.jpg',
-    video: 'Video-85725.mp4',
+    link: 'https://www.instagram.com/reel/DfWxd1yoA1m/?utm_source=ig_web_copy_link&vrfl=MzRlODBiNWFlZA==&srtk=MzRlODBiNWFlZA==',
     type: 'photo',
     alt: 'Young Africans Soccer School child training with a football',
     label: 'SOCCER SCHOOL',
@@ -927,7 +927,9 @@ document.querySelectorAll('.shorts-rail .short-card').forEach((card, index) => {
   if (label) label.textContent = asset.label;
   if (title) title.textContent = asset.title;
   if (description) description.textContent = asset.description;
-  card.href = `Assets/${asset.video}`;
+  card.href = asset.link;
+  card.target = '_blank';
+  card.rel = 'noopener noreferrer';
   card.setAttribute('aria-label', `Play ${asset.title}`);
   card.classList.toggle('short-card-player', asset.type !== 'photo');
   card.classList.toggle('short-card-photo', asset.type === 'photo');
