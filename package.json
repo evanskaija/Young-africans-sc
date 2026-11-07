@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "Secure membership registration API for the Young Africans SC static website.",
   "scripts": {
+    "build": "echo \"Static build ready\"",
     "dev": "vercel dev",
     "start": "vercel dev"
   },
