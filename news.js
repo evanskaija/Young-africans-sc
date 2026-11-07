@@ -219,7 +219,7 @@ const newsStories = [
       { type: 'p', text: 'The foundation is built every day through repetition, communication and the discipline to stay ready before the opportunity arrives.' },
       { type: 'p', text: 'For Bacca, the next challenge is another chance to raise the level and help the team move forward together.' }
     ]
-  }
+  },
 ];
 
 const newsGrid = document.querySelector('[data-news-grid]');

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#003B24" />
+  <link rel="icon" href="young-africansc.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="store.css" />
+  <title>Store Enquiry | Duka la Yanga</title>
+</head>
+<body class="store-page store-checkout-route">
+  <div class="prototype-bar"></div>
+  <header class="site-header" id="top"></header>
+  <main class="store-checkout-page"><div class="container"><a class="store-back-link" href="store-cart.html">&#8592; BACK TO CART</a><div class="store-page-heading"><span class="store-eyebrow">CATALOGUE ENQUIRY</span><h1>LET'S <em>CONNECT.</em></h1><p>Payment collection is not enabled. Submit your details and the authorized store team will confirm availability and fulfilment.</p></div><div data-checkout-status role="status" aria-live="polite"></div><div class="store-checkout-layout"><form class="store-checkout-form" data-checkout-form novalidate><label>Full name<input name="customerName" required maxlength="160" autocomplete="name" /></label><label>Email<input name="email" type="email" required maxlength="180" autocomplete="email" /></label><label>Phone number<input name="phone" required maxlength="60" autocomplete="tel" /></label><fieldset><legend>Fulfilment</legend><label class="store-radio"><input name="fulfillmentOption" type="radio" value="PICKUP" checked /> Pickup</label><label class="store-radio"><input name="fulfillmentOption" type="radio" value="DELIVERY" /> Delivery</label></fieldset><label data-delivery-field hidden>Delivery address<textarea name="deliveryAddress" maxlength="500" rows="3"></textarea></label><label>Notes <span class="store-optional">optional</span><textarea name="notes" maxlength="1000" rows="4" placeholder="Tell the store team anything useful"></textarea></label><button class="store-primary-button" type="submit">SEND ENQUIRY</button></form><aside class="store-checkout-summary" data-checkout-summary></aside></div></div></main>
+  <footer class="site-footer store-footer"><div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>PAYMENT NOT ENABLED</span><a href="#top">BACK TO TOP &#8593;</a></div></footer>
+  <script src="reference-header.js"></script>
+  <script src="store-checkout.js"></script>
+</body>
+</html>

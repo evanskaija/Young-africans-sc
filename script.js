@@ -25,9 +25,9 @@ document.querySelectorAll('.main-nav a').forEach((link) => {
   });
 });
 
-document.querySelectorAll('.language-switch button').forEach((button) => {
+document.querySelectorAll('.language-switch button, .reference-language button').forEach((button) => {
   button.addEventListener('click', () => {
-    document.querySelectorAll('.language-switch button').forEach((item) => item.classList.remove('active'));
+    document.querySelectorAll('.language-switch button, .reference-language button').forEach((item) => item.classList.remove('active'));
     button.classList.add('active');
   });
 });
@@ -852,6 +852,14 @@ document.querySelectorAll('.club-category-card img').forEach((image, index) => {
 });
 
 const shortStoryAssets = [
+  {
+    file: 'Hamsa.png',
+    video: 'Video-95306.mp4',
+    alt: 'Young Africans players celebrating a five-goal victory',
+    label: 'FIRST TEAM',
+    title: 'Five-star football.',
+    description: 'Full-time joy from the Wananchi.',
+  },
   {
     file: 'Clement mzize.png',
     video: 'Video-64366.mp4',

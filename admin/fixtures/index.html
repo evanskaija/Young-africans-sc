@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#002B1B" />
+  <link rel="icon" href="../../young-africansc.png" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <title>Ratiba CMS | Young Africans SC</title>
+</head>
+<body class="membership-route fixture-admin-route">
+  <div class="prototype-bar"></div>
+  <header class="site-header" id="top"></header>
+  <main class="fixture-admin-main">
+    <section class="fixture-admin-hero">
+      <div class="container">
+        <span class="membership-v2-section-label">MY YANGA / ADMIN CMS</span>
+        <h1>MANAGE <em>RATIBA.</em></h1>
+        <p>Ongeza, hariri, ahirisha au ghairi mechi zilizothibitishwa. Taarifa hizi huonekana kwa umma kupitia ukurasa wa Ratiba.</p>
+      </div>
+    </section>
+    <section class="fixture-admin-content">
+      <div class="container">
+        <div class="fixture-admin-lock" data-fixture-admin-lock>
+          <span class="membership-route-kicker">PROTECTED / ADMIN ROLE REQUIRED</span>
+          <h2>Checking administrator access.</h2>
+          <p data-fixture-admin-message>Fixture records load only after secure server-side authorization.</p>
+          <a class="membership-v2-button membership-v2-button-dark" href="../../admin/membership/">RETURN TO ADMIN PORTAL <span>&#8599;</span></a>
+        </div>
+        <div class="fixture-admin-shell" data-fixture-admin-shell hidden>
+          <div class="fixture-admin-toolbar">
+            <div><span class="membership-route-kicker">OFFICIAL FIXTURE RECORDS</span><h2>Fixture editor.</h2></div>
+            <a class="membership-v2-button membership-v2-button-dark" href="../membership/">MEMBERSHIP ADMIN <span>&#8599;</span></a>
+          </div>
+          <section class="fixture-admin-registry" aria-labelledby="fixture-team-registry-title">
+            <div><span class="membership-route-kicker">TEAM AND CREST REGISTRY</span><h3 id="fixture-team-registry-title">Reusable teams.</h3><p>Save approved team names and crest URLs once, then reuse them in fixtures.</p></div>
+            <form class="fixture-admin-registry-form" data-team-form novalidate><label>Category<select name="teamCategory"><option value="MEN">Men's team</option><option value="WOMEN">Women's team</option><option value="UNDER_20">Under 20</option></select></label><label>Team name<input name="teamName" required maxlength="120" /></label><label>Crest URL<input name="crestUrl" type="url" maxlength="500" placeholder="https://..." /></label><label class="fixture-admin-check-label"><span>Young Africans team</span><input name="isYanga" type="checkbox" /></label><button class="fixture-admin-secondary" type="submit">SAVE TEAM</button><span data-team-form-status role="status" aria-live="polite"></span></form>
+            <div class="fixture-admin-team-list" data-team-list></div>
+          </section>
+          <form class="fixture-admin-form" data-fixture-form novalidate>
+            <input type="hidden" name="id" />
+            <div class="fixture-admin-form-heading"><span class="membership-route-kicker">CREATE OR UPDATE</span><h3 data-fixture-form-title>New fixture</h3></div>
+            <div class="fixture-admin-grid">
+              <label>Team category<select name="teamCategory"><option value="MEN">Men's team</option><option value="WOMEN">Women's team</option><option value="UNDER_20">Under 20</option></select></label>
+              <label>Season<input name="season" required maxlength="40" value="2026/27" placeholder="2026/27" /></label>
+              <label>Competition<input name="competition" required maxlength="120" placeholder="NBC Premier League" /></label>
+              <label>Kickoff (Africa/Dar_es_Salaam)<input name="kickoffAt" type="datetime-local" required /></label>
+              <label class="fixture-admin-check-label"><span>Kickoff time confirmed</span><input name="kickoffTimeConfirmed" type="checkbox" checked /></label>
+              <label>Home team<input name="homeTeam" list="fixture-team-options" required maxlength="120" /></label>
+              <label>Away team<input name="awayTeam" list="fixture-team-options" required maxlength="120" /></label>
+              <label>Yanga designation<select name="clubSide"><option value="HOME">Home</option><option value="AWAY">Away</option></select></label>
+              <label class="fixture-admin-check-label"><span>Publish fixture</span><input name="isPublished" type="checkbox" checked /></label>
+              <label>Venue<input name="venue" required maxlength="180" placeholder="Benjamin Mkapa Stadium" /></label>
+              <label>Status<select name="status"><option value="SCHEDULED">Scheduled</option><option value="POSTPONED">Postponed</option><option value="CANCELLED">Cancelled</option><option value="COMPLETED">Completed</option></select></label>
+              <label>Home crest URL<input name="homeCrestUrl" type="url" maxlength="500" placeholder="https://..." /></label>
+              <label>Away crest URL<input name="awayCrestUrl" type="url" maxlength="500" placeholder="https://..." /></label>
+              <label>Official details URL<input name="officialDetailsUrl" type="url" maxlength="500" placeholder="https://..." /></label>
+              <label>Official ticket URL<input name="officialTicketUrl" type="url" maxlength="500" placeholder="https://..." /></label>
+              <label>Home score<input name="homeScore" type="number" min="0" step="1" placeholder="Completed only" /></label>
+              <label>Away score<input name="awayScore" type="number" min="0" step="1" placeholder="Completed only" /></label>
+              <label class="fixture-admin-wide">Notes<textarea name="notes" maxlength="500" rows="3" placeholder="Optional official note"></textarea></label>
+            </div>
+            <datalist id="fixture-team-options" data-team-options></datalist>
+            <div class="fixture-admin-form-actions"><button class="membership-v2-button membership-v2-button-dark" type="submit">SAVE FIXTURE</button><button class="membership-v2-button fixture-admin-secondary" type="button" data-fixture-reset>RESET FORM</button><span data-fixture-form-status role="status" aria-live="polite"></span></div>
+          </form>
+          <section class="fixture-admin-list-section" aria-labelledby="fixture-admin-list-title">
+            <div class="fixture-admin-list-heading"><div><span class="membership-route-kicker">CURRENT RECORDS</span><h3 id="fixture-admin-list-title">All fixtures.</h3></div><button class="fixture-admin-secondary" type="button" data-fixture-refresh>REFRESH</button></div>
+            <div class="fixture-admin-list" data-fixture-admin-list><p>Loading fixtures...</p></div>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer membership-route-footer"><div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>RATIBA CMS</span><a href="#top">BACK TO TOP &#8593;</a></div></footer>
+  <script src="../../reference-header.js"></script>
+  <script src="../../admin-fixtures.js"></script>
+</body>
+</html>

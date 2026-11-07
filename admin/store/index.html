@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#002B1B" />
+  <link rel="icon" href="../../young-africansc.png" />
+  <link rel="stylesheet" href="../../styles.css" />
+  <link rel="stylesheet" href="../../store.css" />
+  <title>Store CMS | Young Africans SC</title>
+</head>
+<body class="membership-route store-admin-route">
+  <div class="prototype-bar"></div>
+  <header class="site-header" id="top"></header>
+  <main class="store-admin-main">
+    <section class="fixture-admin-hero store-admin-hero"><div class="container"><span class="membership-v2-section-label">MY YANGA / ADMIN CMS</span><h1>MANAGE <em>THE STORE.</em></h1><p>Publish approved merchandise, prices, availability and imagery. Payment collection remains disabled until the club authorizes a provider and fulfilment process.</p></div></section>
+    <section class="fixture-admin-content"><div class="container"><div class="fixture-admin-lock" data-store-admin-lock><span class="membership-route-kicker">PROTECTED / ADMIN ROLE REQUIRED</span><h2>Checking administrator access.</h2><p data-store-admin-message>Store records load only after secure server-side authorization.</p><a class="membership-v2-button membership-v2-button-dark" href="../membership/">RETURN TO ADMIN PORTAL <span>&#8599;</span></a></div><div class="store-admin-shell" data-store-admin-shell hidden>
+      <div class="fixture-admin-toolbar"><div><span class="membership-route-kicker">PUBLISHED CATALOGUE</span><h2>Product editor.</h2></div><a class="membership-v2-button membership-v2-button-dark" href="../../store.html">VIEW STORE <span>&#8599;</span></a></div>
+      <form class="store-admin-form" data-store-product-form novalidate><input type="hidden" name="id" /><div class="fixture-admin-form-heading"><span class="membership-route-kicker">CREATE OR UPDATE</span><h3 data-store-form-title>New product</h3></div><div class="store-admin-grid"><label>Product name<input name="name" required maxlength="160" /></label><label>Slug<input name="slug" maxlength="150" placeholder="generated-from-name" /></label><label>Category<select name="category"><option value="HOME_JERSEYS">Home Jerseys</option><option value="AWAY_JERSEYS">Away Jerseys</option><option value="THIRD_JERSEYS">Third Jerseys</option><option value="TRAINING_WEAR">Training Wear</option><option value="LIFESTYLE_CLOTHING">Lifestyle Clothing</option><option value="KIDS_COLLECTION">Kids Collection</option><option value="CAPS_ACCESSORIES">Caps and Accessories</option><option value="OTHER_MERCHANDISE">Other Club Merchandise</option></select></label><label>Price (TZS)<input name="priceTzs" type="number" min="0" step="0.01" required /></label><label>Promotional price (TZS)<input name="promotionalPriceTzs" type="number" min="0" step="0.01" placeholder="Optional" /></label><label>Stock quantity<input name="stockQty" type="number" min="0" step="1" required value="0" /></label><label>Sizes <span class="store-optional">comma separated</span><input name="sizes" maxlength="500" placeholder="S, M, L, XL" /></label><label>Colours <span class="store-optional">comma separated</span><input name="colors" maxlength="500" placeholder="Green, Yellow" /></label><label>Size guide path or URL<input name="sizeGuideUrl" maxlength="700" placeholder="/Assets/size-guide.webp or https://..." /></label><label class="store-admin-check"><span>Optional customization confirmed</span><input name="customizationEnabled" type="checkbox" /></label><label class="store-admin-check"><span>Featured product</span><input name="isFeatured" type="checkbox" /></label><label class="store-admin-check"><span>Publish product</span><input name="isPublished" type="checkbox" /></label><label class="store-admin-wide">Description<textarea name="description" maxlength="4000" rows="5"></textarea></label><label class="store-admin-wide">Approved product image paths or URLs <span class="store-optional">one per line</span><textarea name="images" maxlength="5000" rows="5" placeholder="Assets/approved-product-image.webp"></textarea></label></div><div class="fixture-admin-form-actions"><button class="membership-v2-button membership-v2-button-dark" type="submit">SAVE PRODUCT</button><button class="membership-v2-button fixture-admin-secondary" type="button" data-store-reset>RESET FORM</button><span data-store-form-status role="status" aria-live="polite"></span></div></form>
+      <section class="store-admin-list-section"><div class="fixture-admin-list-heading"><div><span class="membership-route-kicker">CURRENT RECORDS</span><h3>All products.</h3></div><button class="fixture-admin-secondary" type="button" data-store-refresh>REFRESH</button></div><div class="store-admin-list" data-store-product-list><p>Loading products...</p></div></section>
+      <section class="store-admin-list-section"><div class="fixture-admin-list-heading"><div><span class="membership-route-kicker">CATALOGUE ENQUIRIES</span><h3>Customer enquiries.</h3></div><button class="fixture-admin-secondary" type="button" data-store-orders-refresh>REFRESH</button></div><div class="store-admin-orders" data-store-orders-list><p>Loading enquiries...</p></div></section>
+    </div></div></section>
+  </main>
+  <footer class="site-footer membership-route-footer"><div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>STORE CMS</span><a href="#top">BACK TO TOP &#8593;</a></div></footer>
+  <script src="../../reference-header.js"></script>
+  <script src="../../store-admin.js"></script>
+</body>
+</html>

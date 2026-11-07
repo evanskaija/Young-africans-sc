@@ -1,3 +1,6 @@
+const referenceHeaderScript = document.createElement('script');
+referenceHeaderScript.src = '../../reference-header.js';
+referenceHeaderScript.onload = () => {
 (() => {
   const header = document.querySelector('.site-header');
   const menu = document.querySelector('.menu-toggle');
@@ -18,6 +21,7 @@
   document.querySelectorAll('a[href="../application-status/"]').forEach((link) => { link.href = '../application-status/index.html'; });
   document.querySelectorAll('a[href="../login/"]').forEach((link) => { link.href = '../login/index.html'; });
   document.querySelectorAll('a[href="../join/"]').forEach((link) => { link.href = '../join/index.html'; });
+  document.querySelectorAll('a[href="../setup/"]').forEach((link) => { link.href = '../setup/index.html'; });
   document.querySelectorAll('.membership-route-faq details').forEach((item, index, items) => {
     item.addEventListener('toggle', () => {
       if (!item.open) return;
@@ -25,3 +29,5 @@
     });
   });
 })();
+};
+document.head.appendChild(referenceHeaderScript);

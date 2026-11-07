@@ -2,7 +2,7 @@ const { sql } = require('../_lib/db');
 const { json, readBody, method } = require('../_lib/http');
 const { requireAdmin, application } = require('../_lib/auth');
 
-const statuses = new Set(['Pending Review', 'Under Review', 'More Information Required', 'Reviewed']);
+const statuses = new Set(['Pending Review', 'Under Review', 'More Information Required', 'Reviewed', 'APPROVED', 'REJECTED']);
 
 module.exports = async (req, res) => {
   if (!['GET', 'PATCH'].includes(req.method)) return method(res, 'GET, PATCH');
@@ -17,7 +17,7 @@ module.exports = async (req, res) => {
     const result = await sql`SELECT a.*, u.first_name, u.middle_name, u.last_name, u.email, u.phone FROM membership_applications a JOIN membership_users u ON u.id = a.user_id ORDER BY a.submitted_at DESC LIMIT 500`;
     const query = String(req.query?.q || '').trim().toLowerCase();
     const applications = result.rows.map(application).filter((item) => !query || `${item.reference} ${item.fullName}`.toLowerCase().includes(query));
-    const counts = { total: result.rows.length, pending: result.rows.filter((item) => item.application_status === 'Pending Review').length, underReview: result.rows.filter((item) => item.application_status === 'Under Review').length, reviewed: result.rows.filter((item) => item.application_status === 'Reviewed').length };
+    const counts = { total: result.rows.length, pending: result.rows.filter((item) => item.application_status === 'Pending Review').length, underReview: result.rows.filter((item) => item.application_status === 'Under Review').length, reviewed: result.rows.filter((item) => ['Reviewed', 'APPROVED', 'REJECTED'].includes(item.application_status)).length };
     return json(res, 200, { ok: true, mode: 'server', applications, counts });
   } catch (error) { console.error('membership admin failed', error); return json(res, 500, { message: 'The membership administration service is unavailable.' }); }
 };

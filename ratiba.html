@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#002B1B" />
+  <meta name="description" content="Ratiba, matokeo na msimamo wa Young Africans SC." />
+  <link rel="icon" type="image/png" sizes="512x512" href="young-africansc.png" />
+  <link rel="apple-touch-icon" href="young-africansc.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <title>Ratiba ya Mechi | Young Africans SC</title>
+</head>
+<body class="ratiba-page">
+  <div class="prototype-bar"></div>
+  <header class="site-header" id="top"></header>
+  <main class="ratiba-main">
+    <section class="ratiba-hero" aria-labelledby="ratiba-title">
+      <div class="container ratiba-hero-inner">
+        <div><span class="ratiba-eyebrow">YOUNG AFRICANS SC / MATCH CENTRE</span><h1 id="ratiba-title">RATIBA YA <em>MECHI.</em></h1><p>Fuatilia mechi zijazo za Young Africans SC katika mashindano mbalimbali.</p></div>
+        <span class="ratiba-hero-mark" aria-hidden="true">YANGA<br /><b>SC</b></span>
+      </div>
+    </section>
+    <nav class="ratiba-tabs container" aria-label="Ratiba navigation" role="tablist">
+      <button type="button" role="tab" aria-selected="true" aria-controls="ratiba-fixtures" data-ratiba-tab="fixtures">Ratiba</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="ratiba-results" data-ratiba-tab="results">Matokeo</button>
+      <button type="button" role="tab" aria-selected="false" aria-controls="ratiba-standings" data-ratiba-tab="standings">Msimamo</button>
+    </nav>
+    <nav class="ratiba-team-tabs container" aria-label="Team schedule filter" role="tablist">
+      <button type="button" aria-selected="true" data-team-filter="MEN">MEN — First Team</button>
+      <button type="button" aria-selected="false" data-team-filter="WOMEN">WOMEN — Yanga Princess</button>
+      <button type="button" aria-selected="false" data-team-filter="UNDER_20">UNDER-20</button>
+    </nav>
+    <section class="ratiba-view container" id="ratiba-fixtures" role="tabpanel" data-ratiba-view="fixtures">
+      <article class="ratiba-feature" data-next-match><div class="ratiba-section-heading"><span class="ratiba-kicker">NEXT CONFIRMED MATCH</span><h2>MECHI <em>IJAYO.</em></h2></div><div class="ratiba-feature-body" data-next-match-content><div class="ratiba-loading" role="status">Inapakia taarifa rasmi za mechi...</div></div></article>
+      <section class="ratiba-list-panel" aria-labelledby="ratiba-list-title"><div class="ratiba-list-heading"><div><span class="ratiba-kicker">COMPLETE FIXTURE LIST</span><h2 id="ratiba-list-title">MECHI <em>ZOTE.</em></h2></div><div class="ratiba-filter-group"><label class="ratiba-filter-label">Mashindano<select data-competition-filter aria-label="Filter fixtures by competition"><option value="all">Mashindano yote</option></select></label><label class="ratiba-filter-label">Msimu<select data-season-filter aria-label="Filter fixtures by season"><option value="all">Misimu yote</option></select></label></div></div><div class="ratiba-list" data-fixture-list aria-live="polite"><div class="ratiba-loading">Inapakia ratiba...</div></div><button type="button" class="ratiba-load-more" data-load-more="fixtures" hidden>LOAD MORE MATCHES</button></section>
+    </section>
+    <section class="ratiba-view container" id="ratiba-results" role="tabpanel" data-ratiba-view="results" hidden><div class="ratiba-list-panel"><div class="ratiba-list-heading"><div><span class="ratiba-kicker">COMPLETED FIXTURES</span><h2>MATOKEO <em>YA MECHI.</em></h2></div></div><div class="ratiba-list" data-result-list aria-live="polite"></div><button type="button" class="ratiba-load-more" data-load-more="results" hidden>LOAD MORE RESULTS</button></div></section>
+    <section class="ratiba-view container" id="ratiba-standings" role="tabpanel" data-ratiba-view="standings" hidden><div class="ratiba-list-panel"><div class="ratiba-list-heading"><div><span class="ratiba-kicker">VERIFIED COMPETITION DATA</span><h2>MSIMAMO <em>WA LIGI.</em></h2></div></div><div class="ratiba-standings-wrap" data-standings-list aria-live="polite"></div></div></section>
+    <p class="ratiba-source-note">Taarifa za ratiba, matokeo na msimamo huonyeshwa tu zinapothibitishwa na chanzo rasmi cha mashindano au klabu.</p>
+  </main>
+  <footer class="site-footer ratiba-footer"><div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>RATIBA YA MECHI</span><a href="#top">BACK TO TOP &#8593;</a></div></footer>
+  <script src="reference-header.js"></script><script src="fixtures-preview.js"></script><script src="fixtures-preview-more.js"></script><script src="ratiba.js"></script>
+</body>
+</html>

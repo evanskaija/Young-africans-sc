@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#003B24" />
+  <link rel="icon" href="young-africansc.png" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="store.css" />
+  <title>Duka la Yanga | Young Africans SC</title>
+</head>
+<body class="store-page">
+  <div class="prototype-bar"></div>
+  <header class="site-header" id="top"></header>
+  <main>
+    <section class="store-hero" aria-labelledby="store-page-title">
+      <div class="container store-hero-inner">
+        <div>
+          <span class="store-eyebrow">OFFICIAL YANGA STORE</span>
+          <h1 id="store-page-title">WEAR THE <em>PRIDE.</em></h1>
+          <p>Jezi, mavazi na bidhaa za mashabiki wa Yanga.</p>
+        </div>
+        <a class="store-cart-pill" href="store-cart.html" aria-label="Open shopping cart"><span aria-hidden="true">▰</span> CART <b data-cart-count>0</b></a>
+      </div>
+    </section>
+    <section class="store-catalogue" aria-labelledby="store-catalogue-title">
+      <div class="container">
+        <div class="store-section-heading"><div><span class="store-eyebrow">OFFICIAL MERCHANDISE</span><h2 id="store-catalogue-title">SHOP <em>YANGA.</em></h2></div><p data-store-status role="status" aria-live="polite">Checking published products…</p></div>
+        <div class="store-category-tabs" data-category-tabs aria-label="Product categories" role="tablist"></div>
+        <form class="store-toolbar" data-store-filters novalidate>
+          <label class="store-search"><span class="sr-only">Search products</span><input name="search" type="search" placeholder="Search the store" autocomplete="off" /><span aria-hidden="true">⌕</span></label>
+          <label><span class="sr-only">Sort products</span><select name="sort"><option value="featured">Featured first</option><option value="newest">Newest</option><option value="price_low">Price: low to high</option><option value="price_high">Price: high to low</option></select></label>
+        </form>
+        <div class="store-product-grid" data-product-grid aria-live="polite"></div>
+        <div class="store-empty" data-store-empty hidden><div class="store-empty-mark">Y</div><h3>No products published yet.</h3><p>Authorized store products will appear here once the club publishes verified product information.</p><a class="store-outline-button" href="index.html#contact">CONTACT THE CLUB</a></div>
+        <div class="store-load-more-wrap"><button class="store-primary-button" data-load-more type="button" hidden>LOAD MORE</button></div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer store-footer"><div class="container footer-bottom"><span>&copy; 2026 Young Africans Sports Club</span><span>OFFICIAL STORE</span><a href="#top">BACK TO TOP &#8593;</a></div></footer>
+  <script src="reference-header.js"></script>
+  <script src="store.js"></script>
+</body>
+</html>
